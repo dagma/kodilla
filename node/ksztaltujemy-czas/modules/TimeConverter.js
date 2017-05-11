@@ -18,9 +18,9 @@ function getUptime(totalSeconds) {
 
 function timeUnits(sec, min, h) {
 	var toReturn = '';
-	sec = sec.toFixed(0) || 0;
-	min = min.toFixed(0) || 0;
-	h = h.toFixed(0) || 0;
+	sec = (sec || 0).toFixed(0);
+	min = (min || 0).toFixed(0);
+	h = (h || 0).toFixed(0);
 
 	if (h > 0) {
 		toReturn = h + ' godz. ';	
