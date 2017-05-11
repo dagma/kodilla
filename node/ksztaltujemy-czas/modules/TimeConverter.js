@@ -1,7 +1,4 @@
-var os = require('os');
-function getUptime() {
-
-	var totalSeconds = os.uptime();
+function getUptime(totalSeconds) {
 	if ((totalSeconds / 60) < 1) {
 		return timeUnits(totalSeconds);
 	}
@@ -20,7 +17,7 @@ function getUptime() {
 }
 
 function timeUnits(sec, min, h) {
-	var toReturn;
+	var toReturn = '';
 	sec = sec.toFixed(0) || 0;
 	min = min.toFixed(0) || 0;
 	h = h.toFixed(0) || 0;
