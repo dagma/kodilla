@@ -1,0 +1,47 @@
+body {
+	background: #50b5a3;
+	color: #fff;
+}
+.content{
+	max-width: 960px;
+	margin: 0 auto;
+	font-family: "Open Sans",sans-serif;
+	text-align: center;;
+	padding: 30px;
+}
+.row {
+	margin: 15px 0;
+}
+h1 {
+	font-size: 30px;
+	color: #fff;
+	border-bottom: 2px dotted white;
+	padding: 10px;
+}
+.row label {
+    background: #1e997d;
+    padding: 5px 20px;
+    line-height: 20px;
+    display: inline-block;
+    vertical-align: top;
+    width: 100px;
+}
+.row input {
+    padding: 5px 20px;
+    border: none;
+    line-height: 20px;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 0 0 -4px;
+    width: 300px;
+    background: #fff;
+    color: #000;
+}
+.row.send input {
+	background-color: #0f5649;
+	color: #fff;
+	cursor: pointer;
+}
+.row.send input:hover {
+	background-color: #17695a;
+}
