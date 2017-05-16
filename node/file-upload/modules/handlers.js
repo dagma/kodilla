@@ -31,12 +31,12 @@ exports.show = function(request, response) {
 		response.writeHead(200, {"Content-Type": "image/png"});
 		response.write(file, "binary");
 		response.end();
-	})
+	});
 }
 exports.css = function(request, response) {
 	fs.readFile("css/style.css", function(err, html) {
 		response.writeHead(200, {"Content-Type": "text/css; charset=utf-8"});
 		response.write(html);
 		response.end();
-	})
+	});
 }
