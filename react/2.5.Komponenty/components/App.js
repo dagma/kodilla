@@ -1,42 +1,37 @@
-var movies = [
+var contacts = [
 	{
 		id: 1,
-		title: 'Harry Potter',
-		desc: 'film o czarodzieju',
-		img: 'images/harry_potter.jpg'
+		firstName: 'Jan',
+		lastName: 'Nowal',
+		email: 'jan.nowak@example.com',
 	},
 	{
 		id: 2,
-		title: 'Król Lew',
-		desc: 'Film o królu sawanny',
-		img: 'images/krol_lew.jpg'
+		firstName: 'Adam',
+		lastName: 'Kowalski',
+		email: 'adam.kowalski@example.com',
 	},
 	{
 		id: 3,
-		title: 'Tupcio Chrupcio',
-		desc: 'Film o myszce',
-		img: 'images/tupcio_chrupcio.jpg'
-	},
-	{
-		id: 4,
-		title: 'Rogalik i Pędzipiętek',
-		desc: 'Opowieść o przyjaźni',
-		img: 'images/rogalik_pedzipietek.jpg'
-	},
-	{
-		id: 5,
-		title: 'Bob budowniczy',
-		desc: 'Bajka o maszynach budowlanych',
-		img: 'images/bob_budowniczy.jpg'
+		firstName: 'Zbigniew',
+		lastName: 'Koziol',
+		email: 'zbigniew.koziol@example.com',
 	}
 ];
 
-var App = React.createClass({ 
+var contactForm = {
+	firstName: '',
+	lastName: '',
+	email: ''
+};
+
+var App = React.createClass({
 	render: function() {
-		return ( 
-			React.createElement('div', {}, 
-				React.createElement(Header), 
-				React.createElement(MovieList, {items: movies}) ) 
-		); 
-	} 
+		return (
+			React.createElement('div', {className: 'app'},
+				React.createElement(ContactForm, {contact: contactForm}),
+				React.createElement(Contacts, {items: contacts}, {})
+			)
+		);
+	}
 });
