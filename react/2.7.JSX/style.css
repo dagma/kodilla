@@ -1,0 +1,63 @@
+html {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;	
+}
+*, *:before, *:after {
+	-webkit-box-sizing: inherit;
+	-moz-box-sizing: inherit;
+	box-sizing: inherit;
+  }
+body {
+  background-color: #ffe99b;
+  font-family: Helvetica, Verdana, sans-serif;
+}
+ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+li{
+  padding: 10px 20px;
+}
+#app {
+  margin: 0 auto;
+  max-width:960px;
+}
+.contactForm {
+  background: #f75183;
+  padding: 15px;
+}
+input,
+button {
+  padding: 8px;
+  margin: 0 8px 0 8px;
+  border: 1px solid #fc6e99;
+}
+button {
+  float: right;
+  background-color: #000;
+  color: #fff;
+}
+.contactItem {
+  padding: 20px;
+  background-color: #fff;
+  margin: 20px 0;
+}
+.contactItem img {
+  float: left;
+  width: 120px;
+}
+.contactItem:before,
+.contactItem:after {
+    content: " ";
+    display: table;
+}
+.contactItem:after {
+    clear: both;
+}
+.contactItem p,
+.contactItem a {
+  margin: 10px 5px 10px 150px;
+  display: block;
+}
