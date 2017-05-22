@@ -1,8 +1,9 @@
 
 
-var app = React.createElement('div', {className: 'app'},
+var app = React.createElement('div', {},
 				React.createElement(Counter),
-				React.createElement(Counter2),
-				React.createElement(Counter3),
+				React.createElement(Counter),
+				React.createElement(Counter),
 			);
+
 ReactDOM.render(app, document.getElementById('app'));
