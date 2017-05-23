@@ -1,5 +1,5 @@
 Search = React.createClass({ 
-	getInitialState() {
+	getInitialState: function() {
 		return { searchingText: '' };
 	},
 	handleChange: function(event) {
@@ -23,9 +23,9 @@ Search = React.createClass({
 	return <input 
 		type="text" 
 		onChange={this.handleChange} 
-		onKeyUp={this.handleKeyUp}
+		onKeyUp={this.handleKeyUp} 
 		placeholder="Tutaj wpisz wyszukiwaną frazę" 
 		style={styles} 
-		value={this.state.searchTerm} /> 
+		value={this.state.searchingText} /> 
 	}
 });
