@@ -10,11 +10,12 @@ App = React.createClass({
 		};
 	},
 	handleSearch: function(searchingText) { // 1.
-		this.setState({
+		var self = this;
+		self.setState({
 			loading: true // 2.
 		});
-		this.getGif(searchingText, function(gif) { // 3.
-			this.setState({ // 4
+		self.getGif(searchingText, function(gif) { // 3.
+			self.setState({ // 4
 				loading: false, // a 
 				gif: gif, // b 
 				searchingText: searchingText // c 
@@ -51,7 +52,7 @@ App = React.createClass({
 				<Search onSearch={this.handleSearch}/>
 				<Gif 
 					loading={this.state.loading} 
-					url={this.state.url} 
+					url={this.state.gif.url} 
 					sourceUrl={this.state.gif.sourceUrl}
 				/>
 			</div>
