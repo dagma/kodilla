@@ -9,34 +9,50 @@ App = React.createClass({
 			gif: {}
 		};
 	},
-	handleSearch: function(searchingText) { // 1.
+	handleSearch: function(searchingText) {
 		var self = this;
 		self.setState({
-			loading: true // 2.
+			loading: true
 		});
-		self.getGif(searchingText, function(gif) { // 3.
-			self.setState({ // 4
-				loading: false, // a 
-				gif: gif, // b 
-				searchingText: searchingText // c 
+		self.getGif(searchingText, function(gif) {
+			self.setState({
+				loading: false,
+				gif: gif,
+				searchingText: searchingText
 			}); 
 		}).bind(this); 
 	},
 	
-	getGif: function(searchingText, callback) { // 1. 
-		var url = GIPHY_API_URL + '/v1/gifs/random?api_key=' + GIPHY_PUB_KEY + '&tag=' + searchingText; // 2.
-		var xhr = new XMLHttpRequest(); // 3.
-		xhr.open('GET', url); 
-		xhr.onload = function() {
-			if (xhr.status === 200) {
-				var data = JSON.parse(xhr.responseText).data; // 4.
-				var gif = { // 5. 
-					url: data.fixed_width_downsampled_url, sourceUrl: data.url
-				}; 
-				callback(gif); // 6.
+	httpGet: function(url) {
+		return new Promise (
+			function (resolve, rejected) {
+				const xhr = new XMLHttpRequest();
+				xhr.open('GET', url); 
+				xhr.onload = function() {
+					if (this.status === 200) {
+						var data = JSON.parse(xhr.responseText).data;
+						var gif = {
+							url: data.fixed_width_downsampled_url, sourceUrl: data.url
+						};
+						resolve(gif);						
+					} else {
+						reject(new Error(this.statusText));
+					}
+				}
+				xhr.onerror = function () { 
+					reject(new Error( `XMLHttpRequest Error: ${this.statusText}`)); 
+				};
+				xhr.send();
 			}
-		};
-		xhr.send();
+		);
+	},
+	getGif: function(searchingText, callback) {
+		var url = GIPHY_API_URL + '/v1/gifs/random?api_key=' + GIPHY_PUB_KEY + '&tag=' + searchingText; // 2.
+		this.httpGet(url)
+		.then(response => {
+			callback(response);
+		})
+		.catch(error => console.log('error: ' + error));
 	},
 	render: function() {
 		var styles = {
