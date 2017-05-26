@@ -1,0 +1,15 @@
+body {
+	background-color: #607d8b;
+	text-align: center;
+	color: #bbbbbb;
+	font-size: 46px;
+	padding: 50px;
+	font-family: cursive;
+}
+a {
+	color: #bbbbbb;
+	text-decoration: none;
+}
+a:hover {
+	color: #e0dbdb;
+}

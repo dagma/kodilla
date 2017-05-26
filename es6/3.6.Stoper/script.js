@@ -65,7 +65,13 @@ const stopwatch = new Stopwatch(
 	document.querySelector('.stopwatch')
 );
 
-var startButton = document.getElementById('start');
-startButton.addEventListener('click', stopwatch.start);
-var stopButton = document.getElementById('stop');
-stopButton.addEventListener('click', stopwatch.stop);
+function init(){
+     document.getElementById("start").addEventListener("click", function(){
+         stopwatch.start();
+     },false);
+     document.getElementById("stop").addEventListener("click", function(){
+         stopwatch.stop();
+     },false);
+}
+
+window.onload=init;
