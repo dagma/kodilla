@@ -4,6 +4,29 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+var Timelist = function () {
+	function Timelist(display) {
+		_classCallCheck(this, Timelist);
+
+		this.display = display;
+	}
+
+	_createClass(Timelist, [{
+		key: 'addTimeToList',
+		value: function addTimeToList(time) {
+			console.log(this.display);
+			this.display.innerHTML += '<li>' + time + '</li>';
+		}
+	}, {
+		key: 'resetList',
+		value: function resetList() {
+			this.display.innerHTML = '';
+		}
+	}]);
+
+	return Timelist;
+}();
+
 var Stopwatch = function () {
 	function Stopwatch(display) {
 		_classCallCheck(this, Stopwatch);
@@ -22,6 +45,13 @@ var Stopwatch = function () {
 				seconds: 0,
 				miliseconds: 0
 			};
+		}
+	}, {
+		key: 'resetCounter',
+		value: function resetCounter() {
+			this.stop();
+			this.reset();
+			this.print(this.times);
 		}
 	}, {
 		key: 'print',
@@ -50,6 +80,18 @@ var Stopwatch = function () {
 					return _this.step();
 				}, 10);
 			}
+		}
+	}, {
+		key: 'addTimeToList',
+		value: function addTimeToList() {
+			this.stop();
+			timeslist.addTimeToList(this.format(this.times));
+		}
+	}, {
+		key: 'resetList',
+		value: function resetList() {
+			this.stop();
+			timeslist.resetList();
 		}
 	}, {
 		key: 'step',
@@ -86,12 +128,23 @@ function pad0(value) {
 
 var stopwatch = new Stopwatch(document.querySelector('.stopwatch'));
 
+var timeslist = new Timelist(document.querySelector('.results'));
+
 function init() {
 	document.getElementById("start").addEventListener("click", function () {
 		stopwatch.start();
 	}, false);
 	document.getElementById("stop").addEventListener("click", function () {
 		stopwatch.stop();
+	}, false);
+	document.getElementById("reset").addEventListener("click", function () {
+		stopwatch.resetCounter();
+	}, false);
+	document.getElementById("add").addEventListener("click", function () {
+		stopwatch.addTimeToList();
+	}, false);
+	document.getElementById("resetList").addEventListener("click", function () {
+		stopwatch.resetList();
 	}, false);
 }
 

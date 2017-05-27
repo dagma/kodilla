@@ -13,3 +13,15 @@ a {
 a:hover {
 	color: #e0dbdb;
 }
+.controls-list {
+	position: relative;
+	font-size: 26px;
+	margin-top: 15px;
+}
+.results {
+	margin-top: 0;
+}
+.results li{
+	font-size: 20px;
+	list-style-type: none;
+}

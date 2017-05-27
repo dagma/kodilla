@@ -1,3 +1,18 @@
+class Timelist{
+	constructor(display) {
+		this.display = display;
+	}
+
+	addTimeToList(time) {
+		console.log(this.display);
+		this.display.innerHTML += '<li>' + time + '</li>'; 
+	}
+
+	resetList() {
+		this.display.innerHTML = '';
+	}
+}
+
 class Stopwatch {
 	constructor(display) {
 		this.running = false;
@@ -12,6 +27,12 @@ class Stopwatch {
 			seconds: 0,
 			miliseconds: 0
 		};
+	}
+
+	resetCounter() {
+		this.stop();
+		this.reset();
+		this.print(this.times);
 	}
 
 	print() {
@@ -32,6 +53,16 @@ class Stopwatch {
 			this.running = true;
 			this.watch = setInterval(() => this.step(), 10);
 		}
+	}
+
+	addTimeToList() {
+		this.stop();
+		timeslist.addTimeToList(this.format(this.times));
+	}
+
+	resetList() {
+		this.stop();
+		timeslist.resetList();
 	}
 
 	step() {
@@ -65,12 +96,25 @@ const stopwatch = new Stopwatch(
 	document.querySelector('.stopwatch')
 );
 
+const timeslist = new Timelist(
+	document.querySelector('.results')
+);
+
 function init(){
      document.getElementById("start").addEventListener("click", function(){
          stopwatch.start();
      },false);
      document.getElementById("stop").addEventListener("click", function(){
          stopwatch.stop();
+     },false);
+     document.getElementById("reset").addEventListener("click", function(){
+         stopwatch.resetCounter();
+     },false);
+     document.getElementById("add").addEventListener("click", function(){
+         stopwatch.addTimeToList();
+     },false);
+     document.getElementById("resetList").addEventListener("click", function(){
+         stopwatch.resetList();
      },false);
 }
 
