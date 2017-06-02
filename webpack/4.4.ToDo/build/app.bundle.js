@@ -9696,7 +9696,7 @@ var App = function (_React$Component) {
 		value: function render() {
 			return _react2.default.createElement(
 				'div',
-				{ className: 'style.TodoApp' },
+				{ className: _App2.default.TodoApp },
 				_react2.default.createElement(_Title2.default, { data: this.state.data })
 			);
 		}
@@ -22664,11 +22664,11 @@ exports = module.exports = __webpack_require__(86)(undefined);
 
 
 // module
-exports.push([module.i, ".oSJa8GGf1eHC-ChkwQsbV {\r\n\tbackground-color: #F5F5F5;\r\n\tcolor: #222;\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n\tflex-wrap: nowrap;\r\n\tjustify-content: center;\r\n\talign-items: center;\r\n\talign-content: center;\r\n\twidth: 100vw;\r\n\theight: 100vh;\r\n}", ""]);
+exports.push([module.i, ".M0SeVkcLAwBsT_9avVZnd {\r\n\tbackground-color: #F5F5F5;\r\n\tcolor: #222;\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n\tflex-wrap: nowrap;\r\n\tjustify-content: center;\r\n\talign-items: center;\r\n\talign-content: center;\r\n\twidth: 100vw;\r\n\theight: 100vh;\r\n}", ""]);
 
 // exports
 exports.locals = {
-	"TodoApp": "oSJa8GGf1eHC-ChkwQsbV"
+	"TodoApp": "M0SeVkcLAwBsT_9avVZnd"
 };
 
 /***/ }),
@@ -22692,8 +22692,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../node_modules/css-loader/index.js??ref--1-1!./App.css", function() {
-			var newContent = require("!!../node_modules/css-loader/index.js??ref--1-1!./App.css");
+		module.hot.accept("!!../../node_modules/css-loader/index.js??ref--1-1!./App.css", function() {
+			var newContent = require("!!../../node_modules/css-loader/index.js??ref--1-1!./App.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});

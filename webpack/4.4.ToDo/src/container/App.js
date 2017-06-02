@@ -1,6 +1,6 @@
 import React from 'react';
 import uuid from 'uuid';
-import style from '../App.css';
+import style from './App.css';
 import Title from '../components/Title';
 var lista = [
 	{
@@ -43,7 +43,7 @@ class App extends React.Component {
 	}
 	render() {
 		return (
-			<div className='style.TodoApp'>
+			<div className={style.TodoApp}>
 				<Title data={this.state.data}/>
 			</div>
 		);
