@@ -1,0 +1,5 @@
+.todoList {
+	list-style-type: decimal;
+	font-size: 20px;
+	padding: 4px 20px;
+}
