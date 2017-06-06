@@ -1,0 +1,28 @@
+.SingleRow {
+	padding: 20px;
+	margin: 10px 0;
+	border: 2px solid cadetblue;
+	border-radius: 4px;
+	background-color: lightskyblue;
+}
+.SingleRow:hover,
+button:hover {
+	background-color: lightblue;
+	cursor: pointer;
+}
+input {
+	padding: 10px;
+    width: 324px;
+    border: 2px solid cadetblue;
+    border-radius: 4px 0 0 4px;
+}
+button {
+	padding: 10px;
+    border-radius: 0 4px 4px 0;
+    background-color: lightskyblue;
+    color: black;
+    border-style: solid;
+    border-width: 2px 2px 2px 0;
+    border-color: cadetblue;
+    border-left: 0;
+}
