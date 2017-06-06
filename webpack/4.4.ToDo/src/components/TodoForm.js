@@ -1,5 +1,5 @@
 import React from 'react';
-const Todo = ({onClick}) => {
+const TodoForm = ({onClick}) => {
 	let input;
 	return (
 		<div>
@@ -15,4 +15,4 @@ const Todo = ({onClick}) => {
 		</div>
 	);
 }
-export default Todo;
+export default TodoForm;
