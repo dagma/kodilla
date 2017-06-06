@@ -23,13 +23,9 @@ class App extends React.Component {
 			inputValue: ''
 		};
 	}
-	changeInputValue2(newVal) {
+	changeInputValue(newVal) { 
 		this.setState({inputValue: newVal});
 	}
-
-	changeInputValue(e){
-		this.setState({inputValue: e.target.value});
-	};
 	addTodo(val) {
 		if (val.length > 0) {
 			const todo = {
@@ -37,11 +33,13 @@ class App extends React.Component {
 				id: uuid.v4(),
 			};
 			const data = [...this.state.data, todo];
-			this.setState({data});
+			this.setState({
+				data: data, 
+				inputValue: ''
+			});
 		}
 	}
 	removeTodo(id) {
-		console.log(id);
 		const remainder = this.state.data.filter(todo => todo.id !== id);
 		this.setState({data: remainder});
 	}
@@ -53,7 +51,7 @@ class App extends React.Component {
 				<TodoForm 
 					inputValue={this.state.inputValue}  
 					addTodo={ (val) => this.addTodo(val)}
-					changeInputValue={this.changeInputValue}
+					changeInputValue={ (val) => this.changeInputValue(val)}
 				/>
 				<TodoList 
 					data={this.state.data} 

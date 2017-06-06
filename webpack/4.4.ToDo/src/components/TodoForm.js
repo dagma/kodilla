@@ -6,13 +6,14 @@ const TodoForm = props => {
 				type = "text" 
 				placeholder = "napisz zadanie"
 				value = {props.inputValue} 
-				onChange = {props.changeInputValue}
+				onChange={(e) => {
+					props.changeInputValue(e.target.value);
+				}}
 			/>
 			<button 
 				onClick={() => {
 					props.addTodo(props.inputValue);
 				}}
-
 			>
 				dodaj
 			</button>
