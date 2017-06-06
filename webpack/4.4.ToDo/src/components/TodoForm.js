@@ -1,18 +1,23 @@
 import React from 'react';
-const TodoForm = ({onClick}) => {
-	let input;
+const TodoForm = props => {
 	return (
 		<div>
-			<input 
-				ref={node => {input = node;}} 
-				type="text" 
-				placeholder="napisz zadanie" 
+			<input
+				type = "text" 
+				placeholder = "napisz zadanie"
+				value = {props.inputValue} 
+				onChange = {props.changeInputValue}
 			/>
-			<button onClick={() => {
-				onClick(input.value);
-				input.value = ''; 
-			}}>dodaj</button>
+			<button 
+				onClick={() => {
+					props.addTodo(props.inputValue);
+				}}
+
+			>
+				dodaj
+			</button>
 		</div>
-	);
+	)
 }
+
 export default TodoForm;

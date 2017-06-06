@@ -18,12 +18,19 @@ class App extends React.Component {
 						text: 'Nauczyć się składni ES6',
 						id: uuid.v4()
 					}
-				]
+				],
+			title: 'Lista rzeczy do zrobienia',
+			inputValue: ''
 		};
-		this.item = '';
 	}
+	changeInputValue2(newVal) {
+		this.setState({inputValue: newVal});
+	}
+
+	changeInputValue(e){
+		this.setState({inputValue: e.target.value});
+	};
 	addTodo(val) {
-		console.log("val: "+val.length);
 		if (val.length > 0) {
 			const todo = {
 				text: val,
@@ -34,6 +41,7 @@ class App extends React.Component {
 		}
 	}
 	removeTodo(id) {
+		console.log(id);
 		const remainder = this.state.data.filter(todo => todo.id !== id);
 		this.setState({data: remainder});
 	}
@@ -41,12 +49,16 @@ class App extends React.Component {
 	render() {
 		return (
 			<div className={style.TodoApp}>
-				<Title data={this.state.data}/>
-				<TodoForm onClick={this.addTodo.bind(this)}/>
+				<Title title={this.state.title}/>
+				<TodoForm 
+					inputValue={this.state.inputValue}  
+					addTodo={ (val) => this.addTodo(val)}
+					changeInputValue={this.changeInputValue}
+				/>
 				<TodoList 
 					data={this.state.data} 
-					onClickList={this.removeTodo.bind(this)}
-				/>
+					removeTodo={ (id) => this.removeTodo(id)}
+    			/>
 			</div>
 		);
 	}
