@@ -1,0 +1,22 @@
+body {
+	background-color: aquamarine;
+	text-align: center;
+}
+.container {
+	width: 560px;
+	margin: 0 auto;
+	padding: 1px 20px 20px 20px;
+	background-color: #fff;
+}
+.container h1 {
+	
+}
+.login {
+	display: inline-block;
+	padding: 10px 15px;
+	background-color: #D14836;
+	border: 1px solid #ed5f30;
+	color: #fff;
+	border-radius: 6px;
+	text-decoration: none;
+}
