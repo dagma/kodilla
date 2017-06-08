@@ -10,9 +10,7 @@ const TodoForm = props => {
 					props.changeInputValue(e.target.value);
 				}}
 			/>
-			<button 
-				onClick={() => { props.addTodo(props.inputValue); }}
-			>
+			<button onClick={() => { props.addTodo(props.inputValue); }}>
 				dodaj
 			</button>
 		</div>
