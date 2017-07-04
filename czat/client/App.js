@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import io from 'socket.io-client'; // import modulu
 
+import styles from './App.css';
+
+import MessageForm from './MessageForm';
+import MessageList from './MessageList';
+import UsersList from './UsersList';
 import UserForm from './UserForm';
 
 const socket = io('/'); // polaczenie
@@ -11,6 +16,18 @@ class App extends React.Component {
 		this.state = {users: [], messages: [], text: '', name: ''};
 	}
 
+	componentDidMount () {
+		socket.on('message', message => this.messageRecive(message));
+		socket.on('update', ({users}) => this.chatUpdate(users));
+	}
+	messageRecive(message) {
+		const messages = [message, ...this.state.messages];
+		this.setState({messages});
+	}
+
+	chatUpdate(users) {
+		this.setState({users});
+	}
 	render() {
 		return this.state.name !== '' ? (
 			this.renderLayout()
@@ -44,6 +61,17 @@ class App extends React.Component {
 				</div>
 			</div>
 		);
+	}
+
+	handleMessageSubmit(message) {
+		const messages = [message, ...this.state.messages];
+		this.setState({messages});
+		socket.emit('message', message);
+	}
+
+	handleUserSubmit(name) {
+		this.setState({name});
+		socket.emit('join', name);
 	}
 
 	renderUserForm () {
