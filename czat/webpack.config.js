@@ -27,9 +27,9 @@ if(env === 'production') {
 
 module.exports = {
 	entry: [
-		'react-hot-loader/patch',
+//		'react-hot-loader/patch',
 		'webpack-dev-server/client?http://localhost:8080',
-		'webpack/hot/only-dev-server',
+//		'webpack/hot/only-dev-server',
 		'./client/index.js'
 	],
 	output: {

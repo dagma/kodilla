@@ -6,18 +6,17 @@ const UsersService = require('./UsersService');
 
 const userService = new UsersService();
 
-const app = express();
-const server = http.createServer(app);
-const io = socketIo(server);
+const app = express();						// stworzenie aplikacji Express
+const server = http.createServer(app);		// na podstawie app tworzymy serwer HTTP
+const io = socketIo(server);				// podpinamy do serwera socket.io
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public'));		// ustawienie w Expressie miejsca, z którego serwowane będą pliki
 
 app.get('/', function(req, res){
-  res.sendFile(__dirname + '/index.html');
+  res.sendFile(__dirname + '/index.html');			// w odpowiedzi odsyła plik index.html
 });
 
-io.on('connection', function(socket) {
-  // klient połączony, co dalej?
+io.on('connection', function(socket) {				 // klient połączony
   // klient nasłuchuje na wiadomość wejścia do czatu
 	socket.on("join", function(name){
 	  // użytkownika, który pojawił się w aplikacji zapisujemy do serwisu trzymającego listę osób w czacie

@@ -5,7 +5,7 @@ import styles from './UserForm.css';
 class UserForm extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {name: ''};
+		this.state = {name: ''}; // to NIE JEST stan z App.js
 	}
 
 	handleSubmit(e) {
@@ -18,7 +18,7 @@ class UserForm extends Component {
 
 	render() {
 		return (
-			<form className={styles.UserFrom} onSubmit={e => this.handleSubmit(e)}>
+			<form className={styles.UserForm} onSubmit={e => this.handleSubmit(e)}>
 				<input 
 					className={styles.UserInput}
 					placeholder='Write your nickname and press enter'
@@ -30,4 +30,4 @@ class UserForm extends Component {
 	}
 }
 
-export default UserFrom;
+export default UserForm;

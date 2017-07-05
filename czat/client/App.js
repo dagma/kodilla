@@ -8,15 +8,15 @@ import MessageList from './MessageList';
 import UsersList from './UsersList';
 import UserForm from './UserForm';
 
-const socket = io('/'); // polaczenie
+const socket = io('/'); // polaczenie, argument to przestrzeń nazw z któą nawiązujemy polaczenie
 
-class App extends React.Component {
+class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {users: [], messages: [], text: '', name: ''};
 	}
 
-	componentDidMount () {
+	componentDidMount () {			// metoda uruchamia się ostatnia, kiedy komponent jest już wyrenderowany
 		socket.on('message', message => this.messageRecive(message));
 		socket.on('update', ({users}) => this.chatUpdate(users));
 	}

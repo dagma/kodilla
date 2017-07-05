@@ -10,6 +10,8 @@ body {
 }
 
 .AppHeader {
+    background-color: #d01027;
+    color: #fff;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -27,7 +29,7 @@ body {
 
 .AppRoom {
     display: flex;
-    width: 75vw;
+    width: 78vw;
     justify-content: center;
     box-sizing: border-box;
     padding: 20px;
