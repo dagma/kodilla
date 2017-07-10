@@ -18,8 +18,8 @@ function addComment(text) {
 function editComment(id, text) {
 	return {
 		type: EDIT_COMMENT,
-		text: text,
-		id: id,
+		text: text, // text
+		id: id,		// id
 	};
 }
 
