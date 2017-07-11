@@ -14,7 +14,7 @@ function addComment(text) {
         id: uuid.v4()
     };
 }
-
+/*
 function editComment(id, text) {
 	return {
 		type: EDIT_COMMENT,
@@ -45,3 +45,12 @@ function thumbDownComment(id, vote) {
 		vote: vote
 	};
 }
+
+
+export default removeComment;
+export default editComment;
+export default thumbDownComment;
+export default thumbUpComment;
+*/
+
+export default addComment;
