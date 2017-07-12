@@ -1,4 +1,4 @@
 import { createStore } from 'redux';
 import reducers from './reducers.js';
 
-const store = createStore(reducers);y
+const store = createStore(reducers);
