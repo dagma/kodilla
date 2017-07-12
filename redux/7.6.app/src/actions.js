@@ -1,19 +1,21 @@
+import uuid from 'uuid';
+
 // Actions type
 export const ADD_COMMENT = 'ADD_COMMENT';
 export const THUMB_UP_COMMENT = 'THUMB_UP_COMMENT';
+//export const THUMB_DOWN_COMMENT = 'THUMB_DOWN_COMMENT';
 /*
 const EDIT_COMMENT = 'EDIT_COMMENT';
 const REMOVE_COMMENT = 'REMOVE_COMMENT';
-const THUMB_DOWN_COMMENT = 'THUMB_DOWN_COMMENT';
 */
-var uuid = require('uuid-v4');
+
 
 // Action creators
 export function addComment(text) {
     return {
         type: ADD_COMMENT,
         text: text,
-        id: uuid()
+        id: uuid.v4()
     };
 }
 
@@ -23,9 +25,15 @@ export function thumbUpComment(commentId) {
 		id: commentId
 	};
 }
-
-
 /*
+export function thumbDownComment(id, vote) {
+	return {
+		type: THUMB_DOWN_COMMENT,
+		id: id,
+		vote: vote
+	};
+}
+
 function editComment(id, text) {
 	return {
 		type: EDIT_COMMENT,
@@ -41,11 +49,4 @@ function removeComment(id) {
 	};
 }
 
-function thumbDownComment(id, vote) {
-	return {
-		type: THUMB_DOWN_COMMENT,
-		id: id,
-		vote: vote
-	};
-}
 */
