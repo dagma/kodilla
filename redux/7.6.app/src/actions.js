@@ -3,10 +3,11 @@ import uuid from 'uuid';
 // Actions type
 export const ADD_COMMENT = 'ADD_COMMENT';
 export const THUMB_UP_COMMENT = 'THUMB_UP_COMMENT';
-//export const THUMB_DOWN_COMMENT = 'THUMB_DOWN_COMMENT';
+export const THUMB_DOWN_COMMENT = 'THUMB_DOWN_COMMENT';
+export const REMOVE_COMMENT = 'REMOVE_COMMENT';
 /*
 const EDIT_COMMENT = 'EDIT_COMMENT';
-const REMOVE_COMMENT = 'REMOVE_COMMENT';
+
 */
 
 
@@ -25,15 +26,20 @@ export function thumbUpComment(commentId) {
 		id: commentId
 	};
 }
-/*
-export function thumbDownComment(id, vote) {
+
+export function thumbDownComment(commentId) {
 	return {
 		type: THUMB_DOWN_COMMENT,
-		id: id,
-		vote: vote
+		id: commentId
 	};
 }
-
+export function removeComment(id) {
+	return {
+		type: REMOVE_COMMENT,
+		id: id
+	};
+}
+/*
 function editComment(id, text) {
 	return {
 		type: EDIT_COMMENT,
@@ -42,11 +48,6 @@ function editComment(id, text) {
 	};
 }
 
-function removeComment(id) {
-	return {
-		type: REMOVE_COMMENT,
-		id: id
-	};
-}
+
 
 */
