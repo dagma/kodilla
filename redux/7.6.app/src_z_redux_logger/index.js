@@ -6,13 +6,14 @@ import App from './App';
 import reducer from './reducer.js';
 import registerServiceWorker from './registerServiceWorker';
 
-import { createStore } from 'redux';
-import DevTools from './DevTools';
+import { createStore, applyMiddleware } from 'redux';
+import { createLogger } from 'redux-logger';
 import { addComment } from './actions.js';
 
+const logger = createLogger();
 const store = createStore(
 	reducer,
-	DevTools.instrument()
+	applyMiddleware(logger)
 );
 
 ReactDOM.render(
