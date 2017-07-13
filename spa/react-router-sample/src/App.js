@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router';
-import { HashRouter, Link } from 'react-router-dom';
+import { Router, Route, IndexRoute, Link, hashHistory } from 'react-router';
+
 class App extends Component {
  render() {
    return (
-     <HashRouter>
-     	<div>
-     		<Route path="/" component={Navigation}>
-		  		<Route exact component={Home} />
-		  		<Route path='/contact' component={Contact} />
-	  		</Route>
-	  	</div>
-	</HashRouter>
+    <Router history={hashHistory}>
+    	<Route path="/" component={Navigation}>
+        	<IndexRoute component={Home} />
+        	<Route path='/contact' component={Contact} />
+        	<Route path='/hello/:name' component={Hello} />
+        	<Route path='*' component={PageNotFound} />
+    	</Route>
+	</Router>
    )
  }
 }
@@ -20,13 +20,14 @@ const Contact = () => <h1>A tu Contact component</h1>;
 const Navigation = props => (
 	<div>
 		<ul>
-			<li><Link to="/">Home</Link></li>
-			<li><Link to="/contact">Contact</Link></li>
+			<li><Link to="/" activeStyle={{color: '#48abee'}}>Home</Link></li>
+			<li><Link to="/contact" activeStyle={{color: '#48abee'}}>Contact</Link></li>
 		</ul>
 		{props.children}
 	</div>
 );
-
+const PageNotFound = () => <h1>404 Not Found</h1>;
+const Hello = (props) => <h1>WItaj, {props.params.name}</h1>
 export default App;
 
 /*
