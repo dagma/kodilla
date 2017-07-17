@@ -19,7 +19,7 @@ const Navigation = props => (
 				</div>
 			</div>
 			<div className="container-fluid">
-				{props.childres}
+				{props.children}
 			</div>
 		</nav>
 	</div>
