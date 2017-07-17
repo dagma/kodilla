@@ -6,9 +6,9 @@ import store from '../store/store';
 import '../country.css';
 
 class CountryFlagContainer extends Component {
-//	constructor(props) {
-//		super(props);
-//	}
+	constructor(props) {
+		super(props);
+	}
 
 	componentDidMount() {
 		store.dispatch(getCountries());
