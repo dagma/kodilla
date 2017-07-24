@@ -40,8 +40,9 @@ passport.deserializeUser(function(user, done) {
   done(null, user);
 });
 
+var mongoose = require('mongoose');
 var app = express();
-
+mongoose.connect('mongodb://localhost/usersDB');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
