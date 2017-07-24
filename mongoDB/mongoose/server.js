@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/nodeappdatabase');
+mongoose.Promise = global.Promise;
 const Schema = mongoose.Schema;
 
 //new user Schema
@@ -89,57 +90,69 @@ mark.save(function(err) {
 });
 
 //find all users
-User.find({}, function(err, res) {
+User.find({}, function(err, users) {
     if (err) throw err;
-    console.log('Actual database records are ' + res);
+    console.log('Actual database records are ' + users);
 });
 
 //find specific record
-User.find({ username: 'Kenny_the_boy' }, function(err, res) {
+User.find({ username: 'Kenny_the_boy' }, function(err, user) {
     if (err) throw err;
-    console.log('Record you are looking for is ' + res);
+    console.log('Record you are looking for is ' + user);
 });
 
 //update user password
 User.find({ username: 'Kenny_the_boy' }, function(err, user) {
-    if (err) throw err;
-    console.log('Old password is ' + user.password);
-    user.password = 'newPassword';
-    console.log('New password is ' + user.password);
+	var user = user[0];
 
-    user.save(function(err) {
-        if (err) throw err;
+	if (typeof(user) !== "undefined"){
+	    if (err) throw err;
+	    console.log('Old password is ' + user.password);
+	    user.password = 'newPassword';
+	    console.log('New password is ' + user.password);
 
-        console.log('Uzytkownik ' + user.name + ' zostal pomyslnie zaktualizowany');
-    })
+	    user.save(function(err) {
+	        if (err) throw err;
+
+	        console.log('Uzytkownik ' + user.name + ' zostal pomyslnie zaktualizowany');
+	    })
+	}
 });
 
 //update username
 User.findOneAndUpdate({ username: 'Benny_the_boy' }, { username: 'Benny_the_man' }, function(err, user) {
-    if (err) throw err;
+    if (user !== null){
+	    if (err) throw err;
 
-    console.log('Nazwa uzytkownika po aktualizacji to ' + user.username);
+	    console.log('Nazwa uzytkownika po aktualizacji to ' + user.username);
+	}
 });
 
 //find specific user and delete
 User.find({ username: 'Mark_the_boy' }, function(err, user) {
-    if (err) throw err;
+	var user = user[0];
+    if (typeof(user) !== "undefined"){
+	    if (err) throw err;
 
-    user.remove(function(err) {
-        if (err) throw err;
+	    user.remove(function(err) {
+	        if (err) throw err;
 
-        console.log('User successfully deleted');
-    });
+	        console.log('User successfully deleted');
+	    });
+	}
 });
 
 //find specific user and delete
 User.find({ username: 'Kenny_the_boy' }, function(err, user) {
-    if (err) throw err;
+	var user = user[0];
+    if (typeof(user) !== "undefined"){
+	    if (err) throw err;
 
-    user.remove(function(err) {
-        if (err) throw err;
-        console.log('User successfully deleted');
-    });
+	    user.remove(function(err) {
+	        if (err) throw err;
+	        console.log('User successfully deleted');
+	    });
+	}
 });
 
 //find specific user and delete
@@ -147,3 +160,5 @@ User.findOneAndRemove({ username: 'Benny_the_man' }, function(err) {
     if (err) throw err;
     console.log('User deleted!');
 });
+/*
+*/
